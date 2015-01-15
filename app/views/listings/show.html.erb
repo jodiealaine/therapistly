@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+	<div class="col-md-6">
+		<div class="thumbnail">
+ 	 		<%= image_tag @listing.image.url(:medium) %>
+ 	 	</div>
+ 	</div>
+	<div class="col-md-6">
+  	<%= @listing.name %>
+  	<%= number_to_currency(@listing.price) %>
+  	<%= @listing.description %>
+	</div>
+</div>
+
+<%= link_to 'Edit', edit_listing_path(@listing), class: "btn btn-link" %> |
+<%= link_to 'Back', listings_path, class: "btn btn-link" %>
