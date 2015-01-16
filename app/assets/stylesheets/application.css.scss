@@ -72,3 +72,28 @@ body {
   }
 }
 
+.btn-primary:hover {
+  background-color: #1abc9c;
+  border-color: #1abc9c;
+}
+
+.btn-primary {
+  background-color: #fff;
+  border-color: #1abc9c;
+  color: #1abc9c;
+}
+
+.form-control:focus {
+  border-color: #1abc9c;
+}
+
+.btn-link:hover, .btn-link:focus {
+  color: #1abc9c;
+  text-decoration: none;
+}
+
+
+.btn-link {
+
+  color: #666;
+}
