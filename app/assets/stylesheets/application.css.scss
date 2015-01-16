@@ -100,3 +100,13 @@ body {
 
   color: #666;
 }
+
+.jumbotron {
+  background: url('https://www.dropbox.com/s/lnmt5l6xz7jn6j9/jumbotron.png?dl=0') no-repeat left bottom fixed;
+  background-size: cover;
+
+  h1, h2 {
+    font-family: guardian-egyptt, georgia, serif;
+    color: #fff;
+  }
+}
