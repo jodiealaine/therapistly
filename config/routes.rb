@@ -14,9 +14,9 @@ Rails.application.routes.draw do
 
   get 'pages/contact'
 
-  get 'sales' => "order#sales"
+  get 'sales' => "orders#sales"
 
-  get 'purchases' => "order#purchases"
+  get 'purchases' => "orders#purchases"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
