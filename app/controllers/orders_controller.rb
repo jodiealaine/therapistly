@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
-    respond_with(@order)
+    @listing = Listing.find(params[:listing_id])
   end
 
   def edit
@@ -22,9 +22,18 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
+    @listing = Listing.find(params[:listing_id])
+    @seller = @listing.current_user
+
+    @order.listing_id = @listing.id
     @order.buyer_id = current_user.id
-    @order.save
-    respond_with(@order)
+    @order.seller_id = @seller.id
+
+    respond_to do |f|
+      if @order.save
+        format.html { redirect_to root_url, notice: 'Order was successfully created.'}
+      end
+    end
   end
 
   def update
