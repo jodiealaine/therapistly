@@ -11,19 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :address %><br>
-    <%= f.text_field :address %>
+    <%= f.text_field :address, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :city %><br>
-    <%= f.text_field :city %>
+    <%= f.text_field :city, class: "form-control" %>
   </div>
-  <div class="field">
+   <div class="form-group">
     <%= f.label :state %><br>
-    <%= f.text_field :state %>
+    <%= f.text_field :state, class: "form-control" %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+   <div class="form-group">
+    <%= f.submit "Complete Order", class: "btn btn-success" %>
   </div>
 <% end %>
