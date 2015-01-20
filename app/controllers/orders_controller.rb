@@ -10,24 +10,15 @@ class OrdersController < ApplicationController
   def purchases
     @orders  = Order.all.where(buyer: current_user).order("created_at DESC")
   end
-  
-  def index
-    @orders = Order.all
-    respond_with(@orders)
-  end
 
-  def show
-    respond_with(@order)
-  end
-
+  # GET /orders/new
   def new
     @order = Order.new
     @listing = Listing.find(params[:listing_id])
   end
 
-  def edit
-  end
-
+  # POST /orders
+  # POST /orders.json
   def create
     @order = Order.new(order_params)
     @listing = Listing.find(params[:listing_id])
@@ -40,18 +31,12 @@ class OrdersController < ApplicationController
     respond_to do |f|
       if @order.save
         f.html { redirect_to root_url, notice: 'Order was successfully created.'}
+        f.json { render action: 'show', status: :created, location: @order }
+      else
+        f.html { render action: 'new'}
+        f.json { render json: @order.errors, status: unprocessable_entity }
       end
     end
-  end
-
-  def update
-    @order.update(order_params)
-    respond_with(@order)
-  end
-
-  def destroy
-    @order.destroy
-    respond_with(@order)
   end
 
   private
