@@ -31,7 +31,7 @@ class OrdersController < ApplicationController
 
     respond_to do |f|
       if @order.save
-        format.html { redirect_to root_url, notice: 'Order was successfully created.'}
+        f.html { redirect_to root_url, notice: 'Order was successfully created.'}
       end
     end
   end
