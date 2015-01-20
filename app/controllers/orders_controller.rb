@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   respond_to :html
 
   def index
@@ -22,6 +22,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
+    @order.buyer_id = current_user.id
     @order.save
     respond_with(@order)
   end
